@@ -1,6 +1,14 @@
 # TIL
 Today I Learned
 
+> github 사용법
+### 1. git clone : 원격 저장소의 내용을 로컬에 복사해온다. //cd (저장소 위치 master)
+### 2. git add . : 현재 디렉토리에 있는 모든 파일을 git에 저장
+### 3. git status : 현재 파일들 상태 
+### 4. git commit -m"날짜 완성" : 메모
+### 5. git push : 로컬저장소의 내용을 원격저장소로 보낸다
+[참고사이트] (https://rogerdudler.github.io/git-guide/index.ko.html)
+
 > 마크다운 문법
 
 ### 1.제목(Header)
