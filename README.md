@@ -8,7 +8,7 @@ Today I Learned
 ### 4. git status : 현재 파일들 상태 
 ### 5. git commit -m"날짜 완성" : 메모
 ### 6. git push : 로컬저장소의 내용을 원격저장소로 보낸다
-### 7. git에 빈 폴더 생성할때는 local저장소에서 폴더를 만들고 cd를 통해 폴더 이동후 touch .keep 입력하면 된다.
+### 7. git에 빈 폴더 생성: local저장소에서 폴더를 만든 후 cd를 통해 폴더 이동후 touch .keep 입력하면 된다.
 [참고사이트] (https://rogerdudler.github.io/git-guide/index.ko.html)
 
 > 마크다운 문법
