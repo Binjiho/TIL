@@ -71,8 +71,10 @@ First | Second
 ------|--------
 cell1 | cell2
 cell3 | cell4
+### 4. 이미지 업로드
+[참고사이트](https://hanee24.github.io/2017/12/21/how-to-upload-image-with-github-readme)
 
-### 4. 주소 삽입
+### 5. 주소 삽입
 ```
 [주소에 대한 설명](https://github.com/Binjiho) 
 
