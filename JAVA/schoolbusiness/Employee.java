@@ -2,8 +2,6 @@ package schoolbusiness;
 
 public class Employee extends Person {
 
-	
-	
 	String dept;
 //constructor
 	public Employee() {}

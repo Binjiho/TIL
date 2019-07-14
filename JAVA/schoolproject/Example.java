@@ -8,10 +8,17 @@ public class Example {
 		SchoolManager manager = new SchoolManager();
 		
 //		등록테스트
-		Student s = new Student("이지은",27,2012);
-		manager.registerPerson(s);
-		
+		Student s1 = new Student("이지은",27,2012);
+		manager.registerPerson(s1);
+		Student s2 = new Student("배주현",27,2012);
+		manager.registerPerson(s2);
+		Student s3 = new Student("홍길동",27,2012);
+		manager.registerPerson(s3);
+		Student s4 = new Student("임한균",27,1993);
+		manager.registerPerson(s4);
+
 //		검색테스트
+		System.out.println("::::::: 검색 :::::::");
 		Person p = manager.findPerson("배주현");
 		p.printinfo();
 		
@@ -21,19 +28,19 @@ public class Example {
 		
 //		전체 조회테스트
 		Person[] persons = manager.getAllPersons();
+		
 		System.out.println("::::::: 전체출력 :::::::");
-		/*
+		
 		for (int i=0;i<persons.length;i++) {
-			persons[i].printinfo();
+			persons[i].printinfo2();
 		}
-		*/
+		/*
+		
 //		Inhanced forloop(= for each)
 //		arraycollection의 element type : 배열  객체의 이름
-		for (Person a : persons) {
-			a.printinfo();
+		for (Person person : persons) {
+			person.printinfo2();
 		}
-		
-
+		*/	
 	}
-
 }

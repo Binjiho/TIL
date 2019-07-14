@@ -2,7 +2,7 @@ package schoolbusiness;
 
 public class Student extends Person {
 
-	int id;
+	private int id;
 //constructor
 	public Student() {}
 	public Student(String name,int age,int id) {
@@ -23,7 +23,7 @@ public class Student extends Person {
 	}
 	@Override
 	public void printinfo2() {
-		System.out.println("이름:"+super.getName()+" 나이:"+super.getAge()+" 학번:"+id);
+		System.out.println("이름:"+super.getName()+" 나이:"+super.getAge()+" 학번:"+this.getId());
 	}
 
 }
