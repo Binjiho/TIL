@@ -17,11 +17,24 @@ public class SchoolManager extends Person {
 	
 //	1.등록
 	public void registerPerson(Person p) {
-		personDB[count++]=p;
-		System.out.println("생성횟수:"+ count);
-		personDB[count-1].printinfo();
+
+		if (personDB != null) {
+			for (int i = 0; i < count; i++) {
+				if (p.getName().equals(personDB[i].getName())) {
+					System.out.println("동일한 이름을 가진 사람이 있습니다.");
+					break;
+				} else {
+					personDB[count++] = p;
+					System.out.println("생성횟수:" + count);
+					personDB[count - 1].printinfo();
+				}
+			}
+		}
+		personDB[count++] = p;
+		System.out.println("생성횟수:" + count);
+		personDB[count - 1].printinfo();
 	}
-	
+
 //  2.찾기
 	public Person findPerson(String name) {
 		for (int i = 0; i < count; i++) {				 // count 만큼 돌려서 nullpoint없앤것

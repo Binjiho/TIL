@@ -3,9 +3,11 @@ package schoolproject;
 import schoolbusiness.*;
 
 public class Example {
-/*
+
 	public static void main(String[] args) {
 		SchoolManager manager = new SchoolManager();
+		
+		
 		
 //		등록테스트
 		Student s1 = new Student("이지은",27,2012);
@@ -16,7 +18,13 @@ public class Example {
 		manager.registerPerson(s3);
 		Student s4 = new Student("임한균",27,1993);
 		manager.registerPerson(s4);
-
+		
+//		equals
+		System.out.println(s1==s2);
+		System.out.println(s2==s3);
+		
+		System.out.println();
+		
 //		검색테스트
 		System.out.println("::::::: 검색 :::::::");
 		Person p = manager.findPerson("배주현");
@@ -34,14 +42,12 @@ public class Example {
 		for (int i=0;i<persons.length;i++) {
 			persons[i].printinfo2();
 		}
-		/*
+		
 		
 //		Inhanced forloop(= for each)
 //		arraycollection의 element type : 배열  객체의 이름
 		for (Person person : persons) {
 			person.printinfo2();
-		}
-		
-	
-*/
+		}	
+	}
 }

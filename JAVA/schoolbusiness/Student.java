@@ -6,8 +6,7 @@ public class Student extends Person {
 //constructor
 	public Student() {}
 	public Student(String name,int age,int id) {
-		super.setName(name);
-		super.setAge(age);
+		super(name,age);
 		this.id=id;
 	}
 //methods
@@ -24,6 +23,12 @@ public class Student extends Person {
 	@Override
 	public void printinfo2() {
 		System.out.println("이름:"+super.getName()+" 나이:"+super.getAge()+" 학번:"+this.getId());
+	}
+	
+	@Override
+	public String toString() {
+//		return "이름:"+super.getName()+"나이"+super.getAge()+"학번"+id;
+		return super.toString()+"학번"+id;
 	}
 
 }

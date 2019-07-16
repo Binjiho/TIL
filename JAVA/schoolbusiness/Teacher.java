@@ -6,8 +6,7 @@ public class Teacher extends Person {
 //constructor
 	public Teacher() {}
 	public Teacher(String name,int age,String subject) {
-		super.setName(name);
-		super.setAge(age);
+		super(name,age);
 		this.subject=subject;
 	}
 //methods
@@ -25,5 +24,11 @@ public class Teacher extends Person {
 	@Override
 	public void printinfo2() {
 		System.out.println("이름:"+super.getName()+" 나이:"+super.getAge()+" 과목:"+subject);
+	}
+	
+	@Override
+	public String toString() {
+//		return "이름:"+super.getName()+"나이"+super.getAge()+"학번"+id;
+		return super.toString()+"과목"+subject;
 	}
 }
