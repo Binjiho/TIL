@@ -1,36 +1,36 @@
 package schoolproject2;
 
-import schoolbusiness.*;
+import java.util.*;
 
-public class SchoolModelImpl implements SchoolModel{
-	private Person [] personDB;
-	private int count;
+import schoolbusiness.Person;
+
+public class SchoolModelImpl implements SchoolModel {
+	private Collection<Person> personDB = new HashSet<Person>();
+	
+//	Iterator<Person> it = personDB.iterator();
 	
 	public SchoolModelImpl() throws SchoolException{
-		personDB = new Person[200]; //200명으로 제한
-		count=0;
+//		personDB = new ArrayList<>(); //200명으로 제한
+		personDB = new HashSet<>();
+		
 	}
 //등록
 	@Override
 	public void addPerson(Person person) throws SchoolException {
-
-		for (int i = 0; i < count; i++) {
-			if (person.getName().equals(personDB[i].getName())) {
+		for (Person p : personDB) {
+			if(person.getName().equals(p.getName())) {
 				throw new SchoolException("동일한 이름을 가진 사람이 있습니다.");
 			}
 		}
-		personDB[count] = person;
-		count++;
-		System.out.println("생성횟수:" + count);
-		personDB[count - 1].printinfo();
+		personDB.add(person);
+		System.out.println("객체 생성 성공");
 	}
 //찾기
 	@Override
 	public Person findPerson(String name) throws SchoolException {
-
-		for (int i = 0; i < count; i++) {
-			if (name.equals(personDB[i].getName())) {
-				return personDB[i];
+		for (Person p : personDB) {
+			if (name.equals(p.getName())) {
+				return p;
 			}
 		}
 		throw new SchoolException("찾는 사람이 존재하지 않습니다.");
@@ -39,31 +39,33 @@ public class SchoolModelImpl implements SchoolModel{
 //삭제
 	@Override
 	public void deletePerson(String name) throws SchoolException {
-
-		for (int i = 0; i < count; i++) {
-			if ((name.equals(personDB[i].getName()))) {
-				personDB[i] = personDB[--count];
-				break;
+		for (Person p : personDB) {
+			if (name.equals(p.getName())) {
+				personDB.remove(p);
+				return ;
 			}
 		}
 		throw new SchoolException("삭제할 사람이 존재하지 않습니다");
-	}
-	
 
-	//전체출력
+	}
+//전체출력
 	@Override
 	public Person[] getAllPersons() {
-		Person[] persons = new Person[count];
-		for(int i=0;i<persons.length;i++) {
-			persons[i]=personDB[i];
+		Person[] persons = new Person[personDB.size()];
+		
+		Iterator<Person> it = personDB.iterator();
+		
+		for(int i=0;i<personDB.size();i++) {	
+			persons[i]=it.next();
 		}
+		
 		return persons;
 	}
 
 	@Override
 	public void close() throws SchoolException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
