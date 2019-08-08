@@ -2,6 +2,7 @@ package chatting;
 
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.*;
 
 public class ChattingServer {
@@ -20,17 +21,26 @@ public class ChattingServer {
 		Socket socket = null;
 		ObjectInputStream ois = null;
 		ObjectOutputStream oos = null;
+		
 		try {
 			while (true) {
+				
 				socket = serverSocket.accept();
 				ois = new ObjectInputStream(socket.getInputStream());
 				oos = new ObjectOutputStream(socket.getOutputStream());
-
-				User user = new User(socket, ois, oos);
+				String name = (String) ois.readObject();
+				User user = new User(socket, ois, oos,name);
 				users.add(user);
-
 //	Thread
 				Thread t = new ChatServerThread(user);
+				/*
+		    	System.out.print("사용자 이름 입력: ");
+		    	Scanner sc = new Scanner(System.in);
+				String threadname = sc.nextLine();
+				
+				t.setName(threadname);
+				*/
+			
 				t.start();
 			}
 		}catch(Exception e) {
@@ -51,14 +61,15 @@ public class ChattingServer {
 
 			try {
 				String msg = null;
-				String name = (String) ois.readObject();
-				System.out.println(name + "Enter");
+//				String name = (String) ois.readObject();
+//				System.out.println(name + "님이 채팅방 참여하였습니다.");
 
 				while ((msg = (String) ois.readObject()) != null) {
-					System.out.println("[" + name + "]" + msg);
-					oos.writeObject("[" + name + "]" + msg);
+//					System.out.println(name + ":" + msg);
+//					oos.writeObject(name + ":" + msg);
 //	broadcast
-					broadcast("[" + name + "]" + msg);
+					broadcast(user.getName() + ":" + msg);
+//					broadcast(this.getName() + ":" + msg);           Thread name받아오기
 				}
 			} catch (Exception e) {
 				System.out.println("메세지 송수신 에러");

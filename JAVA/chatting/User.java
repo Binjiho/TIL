@@ -8,11 +8,13 @@ class User {
 	private Socket socket;
 	private ObjectInputStream ois;
 	private ObjectOutputStream oos;
+	private String name;
 	
-	User(Socket s, ObjectInputStream ois, ObjectOutputStream oos){
+	User(Socket s, ObjectInputStream ois, ObjectOutputStream oos, String name){
 		this.socket = s;
 		this.ois = ois;
 		this.oos = oos;
+		this.name = name;
 	}
 	
 	public Socket getSocket() {
@@ -24,5 +26,8 @@ class User {
 	}
 	public ObjectOutputStream getObjectOutputStream() {
 		return oos;
+	}
+	public String getName() {
+		return name;
 	}
 }
