@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Examples</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name> SettingDataFile </param-name>
+  	<param-value> /WEB-INF/InitFile.txt </param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name> schoolName </param-name>
+  	<param-value> 한성대학교 </param-value>
+  </context-param>
+  
+  <listener>
+  <listener-class> com.actcamp.ServletContextListenerImpl </listener-class>
+  </listener>
+  
+  
+  
+  <servlet>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<servlet-class>com.actcamp.FirstServlet</servlet-class>
+  	
+  	<init-param>
+  		<param-name> name </param-name>
+  		<param-value> 붉은눈의다욤 </param-value>
+  	</init-param>
+  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<url-pattern> /first.do </url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>SecondServlet</servlet-name>
+  	<servlet-class>com.actcamp.SecondServlet</servlet-class>
+  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SecondServlet</servlet-name>
+  	<url-pattern> /second.do </url-pattern>
+  </servlet-mapping>
+  
+</web-app>
