@@ -28,4 +28,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebProject</name>
+			<type>2</type>
+			<location>D:/java/eclipse/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost</location>
+		</link>
+	</linkedResources>
 </projectDescription>

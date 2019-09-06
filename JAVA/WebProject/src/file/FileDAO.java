@@ -9,7 +9,7 @@ public class FileDAO {
 //	실제로 db접근
 	public FileDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/FILE?serverTimezone=UTC&useSSL=false";
+			String dbURL = "jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC&useSSL=false";
 			String dbID = "root";
 			String dbPassword = "binjiho";
 			Class.forName("com.mysql.jdbc.Driver");

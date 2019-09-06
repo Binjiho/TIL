@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset =utf-8">
-<title>JSP 파일 업로드</title>
+<title>파일 업로드</title>
 </head>
 <body>
 	<%

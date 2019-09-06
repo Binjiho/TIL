@@ -1,9 +1,6 @@
 package user;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class UserDAO {
 
@@ -13,10 +10,11 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/FILE?serverTimezone=UTC&useSSL=false";
+			String dbURL = "jdbc:mysql://localhost:3306/bbs?serverTimezone=UTC&useSSL=false";
 			String dbID = "root";
 			String dbPassword = "binjiho";
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -24,10 +22,12 @@ public class UserDAO {
 	}
 	
 	public int login(String userID, String userPassword) {
+
 		String SQL="SELECT userPassword FROM USER WHERE userID=?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
+			
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
