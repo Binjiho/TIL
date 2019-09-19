@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>jQuery Basic</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	$(document).ready(function(){
+		$('h1').focus(function(){
+		//$('h1').mouseenter(function(){
+			alert('이벤트발생!');
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>Click</h1>
+</body>
+</html>
