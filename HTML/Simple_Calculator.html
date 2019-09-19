@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <script>
+        // 이벤트를 연결합니다.
+        window.onload = function () {
+            // 문서 객체를 선택합니다.
+            var value_1=0;
+            var value_2=0;
+            var op=null;
+            var result= document.getElementById('result');
+            
+            var btn_numbers=document.querySelectorAll('.btn_number');
+
+            for(var i=0;i<btn_numbers.length;i++){
+                //변수를 선언
+                var btn_number=btn_numbers[i];
+                //이벤트를 연결
+                btn_number.onclick =function(){
+                    var value = this.getAttribute("data-value");
+                    result.textContent += value;
+
+                    if(op==null){
+                        value_1=value;
+                    }else{
+                        value_2=value;
+                    }
+                };
+            }
+            //btn_operators
+            var btn_operators = document.querySelectorAll('.btn_operator');
+            for(var i=0; i<btn_operators.length;i++){
+                
+                var btn_operator=btn_operators[i];
+
+                btn_operator.onclick=function(){
+                    var value = this.getAttribute("data-value");
+                    result.textContent += value;
+
+                    op=value;
+                };
+            }
+
+            //btn_get_result
+            var btn_get_result = document.getElementById('btn_get_result');
+            btn_get_result.onclick=function(){
+
+                var value = this.getAttribute("data-value");
+                result.textContent += value;
+
+                var result_value = get_calc_result(op,value_1,value_2);
+                result.textContent += result_value;
+            };
+
+            //btn_clear
+            var btn_clear = document.getElementById('btn_clear');
+            btn_clear.onclick = function(){
+                result.textContent="";
+
+                value_1=0;
+                value_2=0;
+                op=null;
+            };
+        };
+
+        function get_calc_result(op,value_1,value_2){
+            var retValue = null;
+
+            if(op == '+'){
+                retValue = parseInt(value_1) + parseInt(value_2);
+            }else if(op == '-'){
+                retValue = parseInt(value_1) - parseInt(value_2);
+            }else if(op == '*'){
+                retValue = parseInt(value_1) * parseInt(value_2);
+            }else if(op == '/'){
+                retValue = parseInt(value_1) / parseInt(value_2);
+            }
+            return retValue;
+        }   
+    </script>
+</head>
+<body>
+    <div>
+        <button class="btn_number" data-value="0">0</button>
+        <button class="btn_number" data-value="1">1</button>
+        <button class="btn_number" data-value="2">2</button>
+        <button class="btn_number" data-value="3">3</button>
+        <button class="btn_number" data-value="4">4</button>
+        <button class="btn_number" data-value="5">5</button>
+        <button class="btn_number" data-value="6">6</button>
+        <button class="btn_number" data-value="7">7</button>
+        <button class="btn_number" data-value="8">8</button>
+        <button class="btn_number" data-value="9">9</button>
+    </div>
+
+    <div>
+        <button class="btn_operator" data-value="+">+</button>
+        <button class="btn_operator" data-value="-">-</button>
+        <button class="btn_operator" data-value="*">*</button>
+        <button class="btn_operator" data-value="/">/</button>
+        <button id="btn_get_result" data-value="=">=</button>
+        <button id="btn_clear">Clear</button>
+        
+        <!-- 
+            어떨때 class를 쓰고 어떨 때 id를 쓰나? 클래스는 중복으로 줄 수 있다.
+         -->
+        
+    </div>
+    <h1 id="result"></h1>
+</body>
+</html>

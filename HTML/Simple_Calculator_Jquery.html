@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator with Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    
+</head>
+<body>
+    
+    <div>
+    <table>
+        <tr>
+            <td><button class="btn_number" data-value="7">7</button></td>
+            <td><button class="btn_number" data-value="8">8</button></td>
+            <td><button class="btn_number" data-value="9">9</button></td>
+            <td><button class="btn_operator" data-value="/">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn_number" data-value="4">4</button></td>
+            <td><button class="btn_number" data-value="5">5</button></td>
+            <td><button class="btn_number" data-value="6">6</button></td>
+            <td><button class="btn_operator" data-value="*">*</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn_number" data-value="1">1</button></td>
+            <td><button class="btn_number" data-value="2">2</button></td>
+            <td><button class="btn_number" data-value="3">3</button></td>
+            <td><button class="btn_operator" data-value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn_number" data-value="0">0</button></td>
+            <td><button id="btn_get_result" data-value="=">=</button></td>
+            <td><button class="btn_operator" data-value="+">+</button></td>
+            <td><button id="btn_clear">Clear</button></td>
+        </tr>
+    </table>
+    </div>
+        <!-- 
+            어떨때 class를 쓰고 어떨 때 id를 쓰나? 클래스는 중복으로 줄 수 있다.
+         -->
+    <h1 id="result"></h1>
+         
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+
+            // 문서 객체를 선택합니다.
+            var value_1 = 0;
+            var value_2 = 0;
+            var op = null;
+            var result = $('#result');
+            
+            $('.btn_number').css({
+                width:50,
+                height:50
+            });
+
+            $('.btn_operator').css({
+                width:50,
+                height:50
+            });
+
+            $('#btn_get_result').css({
+                width:50,
+                height:50
+            });
+
+            $('#btn_clear').css({
+                width:50,
+                height:50
+            });
+            
+            ///number
+            $('.btn_number').hover(function(){
+                $(this).css('background','white');
+            });
+
+            $('.btn_number').mouseleave(function(){
+                $(this).css('background','');
+            });
+
+            $('.btn_number').click(function(){
+                $(this).css('background','white');
+                var value = $(this).attr("data-value");
+                result.text(result.text() + value);
+                //value setting
+                if(op==null){
+                    value_1=value;
+                }else{
+                    value_2=value;
+                }
+            });
+            
+
+            //btn_operators
+            $('.btn_operator').hover(function(){
+                $(this).css('background','green');
+            });
+
+            $('.btn_operator').mouseleave(function(){
+                $(this).css('background','');
+            });
+
+            $('.btn_operator').click(function(){
+                $(this).css('background','green');
+                var value = $(this).attr("data-value");
+                result.text(result.text() + value);
+                //op setting
+                op=value;
+
+            });
+            
+            //btn_get_result
+            $('#btn_get_result').click(function(){
+                var value = $(this).attr("data-value");
+                result.text(result.text() + value);
+                result.text(result.text() + get_calc_result(op,value_1,value_2));
+            });
+
+            //btn_clear
+            $('#btn_clear').click(function(){
+            
+                result.text("");
+
+                value_1=0;
+                value_2=0;
+                op=null;
+            });
+        });
+
+        function get_calc_result(op,value_1,value_2){
+            var retValue = null;
+
+            if(op == '+'){
+                retValue = parseInt(value_1) + parseInt(value_2);
+            }else if(op == '-'){
+                retValue = parseInt(value_1) - parseInt(value_2);
+            }else if(op == '*'){
+                retValue = parseInt(value_1) * parseInt(value_2);
+            }else if(op == '/'){
+                retValue = parseInt(value_1) / parseInt(value_2);
+            }
+            return retValue;
+        }   
+    </script>
+
+</body>
+</html>
