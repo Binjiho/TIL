@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+    <h2>JSON ADD</h2>
+
+    <p id="p_target"></p>
+    
+
+<script>
+    var myObj, i ,x ="";
+    myObj = {"name":"John","age":30,"cars":{
+    	"car1":"MercedesBenz",
+    	"car2":"BMW",
+    	"car3":"Masserati",
+        "car4":"Audi"}
+    }
+    //add
+    myObj.cars["car5"]="Pelisade";
+    
+
+    for(i in myObj.cars){
+        x += myObj.cars[i] + "<br>";
+    }
+
+   	document.getElementById("p_target").innerHTML =x;
+
+
+
+</script>
+ 
+</body>
+</html>

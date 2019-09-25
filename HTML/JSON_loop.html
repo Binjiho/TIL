@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+    <h2>JSON loop</h2>
+
+    <p id="p_key"></p>
+    
+
+<script>
+    var obj = {"name":"홍길동","age":30,"city":"Seoul"};
+
+    for(key in obj){
+        document.getElementById("p_key").innerHTML += key+"<br>";
+    }
+
+</script>
+ 
+</body>
+</html>

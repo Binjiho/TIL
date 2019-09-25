@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+    <h2>JSON nested object</h2>
+
+    <p id="p_target"></p>
+    
+
+<script>
+    var myObj = {"name":"John","age":30,"cars":{
+    	"car1":"MercedesBenz",
+    	"car2":"BMW",
+    	"car3":"Masserati"}
+    }
+
+    document.getElementById("p_target").innerHTML += myObj.cars.car2+"<br>";
+    // or
+    document.getElementById("p_target").innerHTML += myObj.cars["car2"] +"<br>";
+    
+    for(key in myObj.cars){
+    	document.getElementById("p_target").innerHTML += key + ":" + myObj.cars[key] + "<br>";
+    }
+
+    for(i=0;i< myObj.cars.length;i++){
+    	document.getElementById("p_target").innerHTML += key + ":" + myObj.cars[i] + "<br>";
+    }
+
+
+</script>
+ 
+</body>
+</html>
