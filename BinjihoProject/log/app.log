@@ -1,0 +1,4 @@
+ERROR: [2019 11월 05 16:55:49] com.Binjiho.myapp.LogTestBasic - Oh, No!!!
+WARN : [2019 11월 05 16:55:49] com.Binjiho.myapp.LogTestBasic - Watch out!!!
+INFO : [2019 11월 05 16:55:49] com.Binjiho.myapp.LogTestBasic - Hello, slf4j log
+DEBUG: [2019 11월 05 16:55:49] com.Binjiho.myapp.LogTestBasic - What's wrong with this?

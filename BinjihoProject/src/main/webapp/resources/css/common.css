@@ -1,0 +1,9 @@
+<!-- Binjiho-->
+.thumbnail-wrapper{
+	width: 200px;
+	margin-top: 5px;
+}
+
+.thumbnail-wrapper img{
+	max-width: 100%;
+}
