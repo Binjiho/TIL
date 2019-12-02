@@ -313,7 +313,7 @@ html, body {
     <!-- Theme js / Custom js -->
     <script src="/resources/js/theme.js"></script>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhEnn9dUKDqxxmPAWsi7GX2M4DdWcSqDw&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key= <!--  -->   &libraries=places&callback=initMap" async defer></script>
     
     <script>
     var MAP_VIEW;
